@@ -1,0 +1,34 @@
+1. Apply migration
+
+python manage.py migrate --database=secondary
+
+2. Create superuser
+
+python manage.py createsuperuser --database=secondary
+
+
+3. Run server
+
+python manage.py runserver
+
+
+4. Create new user in secondary database
+
+User.objects.using('secondary').create_user(username='test', password='test',)
+
+
+5. Check user in secondary database
+
+User.objects.using('secondary').all()
+
+
+6. Check user in default database
+
+User.objects.all()
+
+
+7. Check user in default database
+
+User.objects.all()
+
+
